@@ -1,11 +1,11 @@
-import { GoebbelsCore } from './goebbels-core'
-import { TypeGuard } from './type-guard'
+
 import { DeepPartial } from 'utility-types'
 import { GoebbelsConfig, goebbelsDefaultConfig } from './goebbels.config'
 import { StringRedactor } from './redactors/string-redactor'
 import { NumberRedactor } from './redactors/number-redactor'
 import { ErrorRedactor } from './redactors/error-redactor'
 import { ObjectRedactor } from './redactors/object-redactor'
+import { isString, isError, isNumber, isObject, isArray, isFunction } from './utils'
 
 export type GoebbelsResult<T> =
   | T
@@ -14,7 +14,7 @@ export type GoebbelsResult<T> =
       message: string
     }
 
-export class Goebbels extends GoebbelsCore {
+export class Goebbels  {
   private readonly config: GoebbelsConfig
   private readonly stringRedactor: StringRedactor
   private readonly numberRedactor: NumberRedactor
@@ -22,7 +22,6 @@ export class Goebbels extends GoebbelsCore {
   private readonly objectRedactor: ObjectRedactor
 
   constructor(config: DeepPartial<GoebbelsConfig>) {
-    super(new TypeGuard())
     const validConfig = goebbelsDefaultConfig // Change later - it should merge default and passed config
     const { mask, detection } = validConfig
 
@@ -41,20 +40,20 @@ export class Goebbels extends GoebbelsCore {
   redact(value: unknown): GoebbelsResult<unknown> {
     try {
       // Primitive values
-      if (this.typeGuard.isString(value)) {
+      if (isString(value)) {
         return this.stringRedactor.redact(value)
       }
-      if (this.typeGuard.isNumber(value)) {
+      if (isNumber(value)) {
         return this.numberRedactor.redact(value)
       }
       // Non-primitive values
-      if (this.typeGuard.isError(value)) {
+      if (isError(value)) {
         return this.errorRedactor.redact(value)
       }
-      if (this.typeGuard.isArray(value)) {
+      if (isArray(value)) {
         return value.map((singleValue) => this.redact(singleValue))
       }
-      if (this.typeGuard.isObject(value)) {
+      if (isObject(value)) {
         return this.objectRedactor.redact(value, (...args) =>
           this.redact(...args),
         )
