@@ -14,6 +14,9 @@ export interface GoebbelsConfig {
     object: {
       key: Detector<number | string>[]
     }
+    function:{
+      name:  Detector<string>[]
+    }
   }
 }
 
@@ -30,5 +33,8 @@ export const goebbelsDefaultConfig: GoebbelsConfig = {
     object: {
       key: objectKeyRegexes,
     },
+    function: {
+      name: []
+    }
   },
 }

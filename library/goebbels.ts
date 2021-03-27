@@ -6,6 +6,7 @@ import { NumberRedactor } from './redactors/number-redactor'
 import { ErrorRedactor } from './redactors/error-redactor'
 import { ObjectRedactor } from './redactors/object-redactor'
 import { isString, isError, isNumber, isObject, isArray, isFunction } from './utils'
+import { FunctionRedactor } from './redactors/function-redactor'
 
 export type GoebbelsResult<T> =
   | T
@@ -20,6 +21,7 @@ export class Goebbels  {
   private readonly numberRedactor: NumberRedactor
   private readonly errorRedactor: ErrorRedactor
   private readonly objectRedactor: ObjectRedactor
+  private readonly functionRedactor: FunctionRedactor
 
   constructor(config: DeepPartial<GoebbelsConfig>) {
     const validConfig = goebbelsDefaultConfig // Change later - it should merge default and passed config
@@ -35,6 +37,7 @@ export class Goebbels  {
       detection.error.stack,
     )
     this.objectRedactor = new ObjectRedactor(mask, detection.object.key)
+    this.functionRedactor = new FunctionRedactor(mask, detection.function.name)
   }
 
   redact(value: unknown): GoebbelsResult<unknown> {
@@ -49,6 +52,9 @@ export class Goebbels  {
       // Non-primitive values
       if (isError(value)) {
         return this.errorRedactor.redact(value)
+      }
+      if(isFunction(value)) {
+        return this.functionRedactor.redact(value)
       }
       if (isArray(value)) {
         return value.map((singleValue) => this.redact(singleValue))
