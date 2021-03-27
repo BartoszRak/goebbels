@@ -8,7 +8,8 @@
     "baseUrl": "./",
     "outDir": "./dist",
     "removeComments": true,
-    "incremental": true
+    "incremental": true,
+    "declaration": true
   },
   "include": ["./library"]
 }
