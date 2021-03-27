@@ -8,11 +8,18 @@ export const objectKeyRegexes: RegExp[] = [
   new RegExp('p+h+o+n+e+n+u+m+b+e+r+s*', 'gmi'),
 ]
 
+export const emailRegex = new RegExp(`([a-zA-Z0-9!#$%&'*+-/=?^_\`{|}~]{1,63}|"[ a-zA-Z0-9!#$%&'*+-/=?^_\`{|}~"(),:;<>@[\\]]{1,61}")@[a-zA-Z0-9-.]{1,253}`, 'gmi')
+export const bcryptHashRegex = new RegExp(
+  '[$][0-9][ayb][$][0-9]{2}[$].{53}',
+  'gmi',
+)
+export const creditCardNumberRegex = new RegExp(
+  '[0-9]{4}[- ]?[0-9]{4}[- ]?[0-9]{4}[- ]?[0-9]{3,4}',
+  'gmi',
+)
+
 export const textRegexes: RegExp[] = [
-  // email
-  new RegExp('[a-zA-Z_.+0-9-]+@[a-zA-Z._+0-9-]+', 'gmi'),
-  // bcrypt hash
-  new RegExp('[$][0-9][ayb][$][0-9]{2}[$].{53}', 'gmi'),
-  // majority of visa, mastercard and american express credit cars
-  new RegExp('[0-9]{4}[- ]?[0-9]{4}[- ]?[0-9]{4}[- ]?[0-9]{3,4}', 'gmi'),
+  emailRegex,
+  bcryptHashRegex,
+  creditCardNumberRegex,
 ]
