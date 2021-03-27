@@ -1,6 +1,6 @@
 import { Detector, Redactor } from '../redactor'
 
-export class NumberRedactor extends Redactor<number> {
+export class NumberRedactor extends Redactor<number, number | string> {
   constructor(
     private readonly mask: string,
     private readonly detectors: Detector<number>[],
