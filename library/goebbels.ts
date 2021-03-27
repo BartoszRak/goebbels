@@ -2,12 +2,11 @@ import { GoebbelsCore } from './goebbels-core'
 import { TypeGuard } from './type-guard'
 import { DeepPartial } from 'utility-types'
 import { GoebbelsConfig, goebbelsDefaultConfig } from './goebbels.config'
-import { Redactor } from './redactor'
 import { StringRedactor } from './redactors/string-redactor'
 import { NumberRedactor } from './redactors/number-redactor'
 import { ErrorRedactor } from './redactors/error-redactor'
 
-type GoebbelsResult<T> =
+export type GoebbelsResult<T> =
   | T
   | {
       error: Error
