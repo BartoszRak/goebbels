@@ -1,5 +1,5 @@
 export class TypeGuard {
-  isObject(value: unknown): value is object {
+  isObject(value: unknown): value is Record<string | number, unknown> {
     return (
       value instanceof Object &&
       !Array.isArray(value) &&

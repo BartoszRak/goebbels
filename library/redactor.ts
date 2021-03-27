@@ -1,7 +1,7 @@
 export type Detector<T> = RegExp | ((value: T) => boolean)
 
 export abstract class Redactor<T, V> {
-  abstract redact(value: T): V
+  abstract redact(value: T, ...restOfArgs: any[]): V
 
   protected detectWithDetector<R>(value: R, detector: Detector<R>): boolean {
     if (this.isDetectorRegExp(detector)) {
