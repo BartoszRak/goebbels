@@ -23,4 +23,8 @@ export class TypeGuard {
   isFunction(value: unknown): value is Function {
     return value instanceof Function
   }
+
+  isArray(value: unknown): value is [] {
+    return Array.isArray(value)
+  }
 }
