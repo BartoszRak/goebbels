@@ -1,6 +1,6 @@
-import { DeepPartial } from 'utility-types'
 import { Goebbels } from './goebbels'
 import { GoebbelsConfig } from './goebbels.config'
+import { DeepPartial } from './utils'
 
 const detectionConfiguration: DeepPartial<GoebbelsConfig['detection']> = {
   text: [new RegExp('secret-text[0-9]+', 'gmi')],

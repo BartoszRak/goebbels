@@ -1,4 +1,3 @@
-import { DeepPartial } from 'utility-types'
 import { GoebbelsConfig, goebbelsDefaultConfig } from './goebbels.config'
 import { StringRedactor } from './redactors/string-redactor'
 import { NumberRedactor } from './redactors/number-redactor'
@@ -12,6 +11,7 @@ import {
   isArray,
   isFunction,
   deepMerge,
+  DeepPartial,
 } from './utils'
 import { FunctionRedactor } from './redactors/function-redactor'
 
