@@ -1,15 +1,27 @@
 {
   "name": "goebbels",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Censorship for your data!",
   "main": "dist/index.js",
   "types": "dist/index.ts",
   "files": ["dist"],
   "repository": "https://github.com/BartoszRak/goebbels",
+  "homepage": "https://github.com/BartoszRak/goebbels#readme",
+  "bugs": {
+    "url": "https://github.com/BartoszRak/goebbels/issues"
+  },
   "author": "Bartosz Rak <bartosz.rak.official@gmail.com>",
   "license": "MIT",
   "private": false,
   "readme": "./README.md",
+  "keywords": [
+    "redact",
+    "redactor",
+    "censorsip",
+    "censor",
+    "data tranformation",
+    "data escaping"
+  ],
   "engines": {
     "node": "14.16.0"
   },
