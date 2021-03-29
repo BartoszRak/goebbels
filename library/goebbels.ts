@@ -1,11 +1,18 @@
-
 import { DeepPartial } from 'utility-types'
 import { GoebbelsConfig, goebbelsDefaultConfig } from './goebbels.config'
 import { StringRedactor } from './redactors/string-redactor'
 import { NumberRedactor } from './redactors/number-redactor'
 import { ErrorRedactor } from './redactors/error-redactor'
 import { ObjectRedactor } from './redactors/object-redactor'
-import { isString, isError, isNumber, isObject, isArray, isFunction } from './utils'
+import {
+  isString,
+  isError,
+  isNumber,
+  isObject,
+  isArray,
+  isFunction,
+  deepMerge,
+} from './utils'
 import { FunctionRedactor } from './redactors/function-redactor'
 
 export type GoebbelsResult<T> =
@@ -15,7 +22,7 @@ export type GoebbelsResult<T> =
       message: string
     }
 
-export class Goebbels  {
+export class Goebbels {
   private readonly config: GoebbelsConfig
   private readonly stringRedactor: StringRedactor
   private readonly numberRedactor: NumberRedactor
@@ -23,8 +30,10 @@ export class Goebbels  {
   private readonly objectRedactor: ObjectRedactor
   private readonly functionRedactor: FunctionRedactor
 
-  constructor(config: DeepPartial<GoebbelsConfig>) {
-    const validConfig = goebbelsDefaultConfig // Change later - it should merge default and passed config
+  constructor(config?: DeepPartial<GoebbelsConfig>) {
+    const validConfig = config
+      ? deepMerge<GoebbelsConfig>(goebbelsDefaultConfig, config)
+      : goebbelsDefaultConfig // Change later - it should merge default and passed config
     const { mask, detection } = validConfig
 
     this.config = validConfig
@@ -53,7 +62,7 @@ export class Goebbels  {
       if (isError(value)) {
         return this.errorRedactor.redact(value)
       }
-      if(isFunction(value)) {
+      if (isFunction(value)) {
         return this.functionRedactor.redact(value)
       }
       if (isArray(value)) {

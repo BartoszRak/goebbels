@@ -1,5 +1,5 @@
 import { Detector } from './redactor'
-import { objectKeyRegexes, textRegexes } from './regexes'
+import { numberRegexes, objectKeyRegexes, textRegexes } from './regexes'
 
 export interface GoebbelsConfig {
   mask: string
@@ -21,7 +21,7 @@ export interface GoebbelsConfig {
 }
 
 export const goebbelsDefaultConfig: GoebbelsConfig = {
-  mask: 'MASKED_DATA',
+  mask: '**MASKED_DATA**',
   detection: {
     error: {
       name: textRegexes,
@@ -29,7 +29,7 @@ export const goebbelsDefaultConfig: GoebbelsConfig = {
       stack: [],
     },
     text: textRegexes,
-    number: [],
+    number: numberRegexes,
     object: {
       key: objectKeyRegexes,
     },

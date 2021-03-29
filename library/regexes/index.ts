@@ -17,3 +17,7 @@ export const textRegexes: RegExp[] = [
   bcryptHashRegex,
   creditCardNumberRegex,
 ]
+
+export const numberRegexes: RegExp[] = [
+  creditCardNumberRegex
+]

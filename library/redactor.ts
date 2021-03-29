@@ -5,7 +5,8 @@ export abstract class Redactor<T, V> {
 
   protected detectWithDetector<R>(value: R, detector: Detector<R>): boolean {
     if (this.isDetectorRegExp(detector)) {
-      return detector.test(`${value}`)
+      const regexResult = String(value).match(detector)
+      return regexResult !== null
     }
     return detector(value)
   }

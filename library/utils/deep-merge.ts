@@ -1,10 +1,10 @@
 import { isArray, isObject } from './types'
 
-export const deepMerge = (
-  base: Record<string | number | symbol, unknown>,
-  addition: Record<string | number | symbol, unknown>,
+export const deepMerge = <T>(
+  base: any,
+  addition: any,
   mergeArrays = false,
-) => {
+): T => {
   const newObject = { ...base }
   Object.entries(addition).forEach(([key, value]) => {
     if (!newObject[key]) {
@@ -22,5 +22,5 @@ export const deepMerge = (
       newObject[key] = value
     }
   })
-  return newObject
+  return newObject as unknown as T
 }

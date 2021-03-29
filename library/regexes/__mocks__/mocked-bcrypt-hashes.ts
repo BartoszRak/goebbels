@@ -14,7 +14,6 @@ export const mockedBcryptHashesWithText = mockedBcryptHashes.map(
 export const mockedNotBcryptHashes = [
   'c9p7udKkdbvCq3nafU6UlAy5+dU=',
   '2nSnBjqyGVhKoFFQgig5D2FgWt4=',
-  'John George',
-  '12412412512323',
+  '12$PEmxrth.vjPDazPWQcLs6u9GRFLJvneUkcf/vcXn8L.bzaBUKeX4W',
   'd39823sjum20m983um0a=23=c-2=3rc2',
 ]
