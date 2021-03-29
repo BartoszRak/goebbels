@@ -1,6 +1,6 @@
 {
-  "name": "goebbels",
-  "version": "0.0.6",
+  "name": "@goebbels/core",
+  "version": "0.0.1",
   "description": "Censorship for your data!",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
