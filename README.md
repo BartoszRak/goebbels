@@ -1,10 +1,12 @@
-# Goebbels
-![Goebbels version](https://img.shields.io/npm/v/goebbels)
-![Goebbels license](https://img.shields.io/npm/l/goebbels)
-![Goebbels downloads per month](https://img.shields.io/npm/dt/goebbels)
+# `@goebbels/core`
+![Goebbels version](https://img.shields.io/npm/v/@goebbels/core)
+![Goebbels license](https://img.shields.io/npm/l/@goebbels/core)
+![Goebbels downloads per month](https://img.shields.io/npm/dt/@goebbels/core)
 
-Github repository: https://github.com/BartoszRak/goebbels
-NPM package: https://www.npmjs.com/package/goebbels
+**`@goebbels/core` repository: https://github.com/BartoszRak/goebbels**
+**`@goebbels/core` package: https://www.npmjs.com/package/@goebbels/core**
+
+**Goebbels for NestJS (`@goebbels/nestjs`): https://www.npmjs.com/package/@goebbels/nestjs*
 
 ## For what?
 For censuring sensitive informations in your data that will be passed somewhere where sensitive informations are not welcome (for example logs sent to some cloud logging provider).
@@ -15,9 +17,8 @@ For censuring sensitive informations in your data that will be passed somewhere 
 - Works with wide range of data types
 
 ## Installation
-`yarn add goebbels`
-or
-`npm install goebbels`
+`yarn add goebbels` or `npm install goebbels`
+
 **Declarations/types are included in this package*
 
 ## Usage
