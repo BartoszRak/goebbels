@@ -3,6 +3,7 @@ import { numberRegexes, objectKeyRegexes, textRegexes } from './regexes'
 
 export interface GoebbelsConfig {
   mask: string
+  depth: number,
   detection: {
     error: {
       name: Detector<string>[],
@@ -22,6 +23,7 @@ export interface GoebbelsConfig {
 
 export const goebbelsDefaultConfig: GoebbelsConfig = {
   mask: '**MASKED_DATA**',
+  depth: Infinity,
   detection: {
     error: {
       name: textRegexes,

@@ -50,6 +50,16 @@ export class Goebbels {
   }
 
   redact(value: unknown): GoebbelsResult<unknown> {
+    return this.redactWithDepth(value)
+  }
+
+  private redactWithDepth(
+    value: unknown,
+    depth: number = 0,
+  ): GoebbelsResult<unknown> {
+    if(depth > this.config.depth) {
+      return value
+    }
     try {
       // Primitive values
       if (isString(value)) {
@@ -66,11 +76,13 @@ export class Goebbels {
         return this.functionRedactor.redact(value)
       }
       if (isArray(value)) {
-        return value.map((singleValue) => this.redact(singleValue))
+        return value.map((singleValue) =>
+          this.redactWithDepth(singleValue, depth + 1),
+        )
       }
       if (isObject(value)) {
         return this.objectRedactor.redact(value, (...args) =>
-          this.redact(...args),
+          this.redactWithDepth(...args, depth + 1),
         )
       }
       // Cannot redact
