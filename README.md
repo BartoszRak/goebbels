@@ -24,7 +24,7 @@ or
 
 ### Usage instruction
  1. ### Create an Goebbels instance
-    With [default configuration](./library/goebbels-config.ts):
+    With [default configuration](./library/goebbels.config.ts):
     ```ts
     import { Goebbels } from 'goebbels'
     
