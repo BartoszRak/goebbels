@@ -12,7 +12,7 @@ For censuring sensitive informations in your data that will be passed somewhere 
 ## Why this one redactor is better than others?
 - Highly customizable
 - 0 external dependencies (easy to verify, no dependency-chain malware injection)
-- 
+- Works with wide range of data types
 
 ## Installation
 `yarn add goebbels`
