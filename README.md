@@ -3,6 +3,9 @@
 ![Goebbels license](https://img.shields.io/npm/l/goebbels)
 ![Goebbels downloads per month](https://img.shields.io/npm/dt/goebbels)
 
+Github repository: https://github.com/BartoszRak/goebbels
+NPM package: https://www.npmjs.com/package/goebbels
+
 ## For what?
 For censuring sensitive informations in your data that will be passed somewhere where sensitive informations are not welcome (for example logs sent to some cloud logging provider).
 
